@@ -1,11 +1,11 @@
 <mujoco model="sawyer">
-    <compiler angle="radian" meshdir="meshes/" />
+    <compiler angle="radian" meshdir="meshes" />
     <!-- <option gravity="0 0 0" /> -->
     <!-- <option impratio="0.01" /> -->
     <size njmax="500" nconmax="100" />
     <asset>
-        <texture type="skybox" builtin="gradient" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" width="32" height="32"></texture>
-        <material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="1 1 1 1"></material>
+        <texture type="skybox" builtin="gradient" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" width="32" height="32"/>
+        <material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="1 1 1 1"/>
         <mesh name="pedestal" file="pedestal.STL" />
         <mesh name="base" file="base.STL" />
         <mesh name="l0" file="l0.STL" />
@@ -45,30 +45,23 @@
         </default>
     </default>
 
-    <!--equality>
-        <weld body1="mocap" body2="leftclaw"></weld>
-    </equality-->
+    <equality>
+        <weld body1="mocap" body2="right_gripper_base"/>
+    </equality>
 
     <worldbody>
-        <light directional="true" ambient="0.2 0.2 0.2" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" castshadow="false" pos="0 0 4" dir="0 0 -1" name="light0"></light>
+        <light directional="true" ambient="0.2 0.2 0.2" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" castshadow="false" pos="0 0 4" dir="0 0 -1" name="light0"/>
 
-        <!--<geom name="tableTop" type="plane" pos="0 0.6 0" size="0.4 0.2 0.5" rgba=".6 .6 .5 1" contype="1" conaffinity="1" />-->
-
-        <geom name="floor0" pos="0.4 0 -0.92" size="1.2 0.7 1" type="plane" condim="3" material="floor_mat"></geom>
-
-        <geom name="target0" pos="0.4 0.25 0.0" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere" contype="0" conaffinity="0"></geom>
+	<geom name="target0" pos="0.4 0.25 0.0" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere" contype="0" conaffinity="0"/>
+        <geom name="floor0" pos="0.4 0 -0.92" size="1.2 0.7 1" type="plane" condim="3" material="floor_mat"/>
+	
+        <body mocap="true" name="mocap" pos="0.2369680365278436 0.7377722688452103 0.30233579064225752">
+            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0.0 0.0 1.0 1.0" size="0.029 0.05" quat="0 0 0.707107 0.707107" type="cylinder"/>
+        </body>
 
         <body name="base" pos="0 0 0">
             <site name="basesite" pos="0 0 0" size="0.01" />
             <inertial pos="0 0 0" mass="0" diaginertia="0 0 0" />
-            <!--<body name="controller_box" pos="0 0 0">-->
-                <!--<inertial pos="-0.325 0 -0.38" mass="46.64" diaginertia="1.71363 1.27988 0.809981" />-->
-                <!--<geom size="0.11 0.2 0.265" pos="-0.325 0 -0.38" type="box" rgba="0.2 0.2 0.2 1"/>-->
-            <!--</body>-->
-            <!--<body name="pedestal_feet" pos="0 0 0">-->
-                <!--<inertial pos="-0.1225 0 -0.758" mass="167.09" diaginertia="8.16095 9.59375 15.0785" />-->
-                <!--<geom size="0.385 0.35 0.155" pos="-0.1225 0 -0.758" type="box" rgba="0.2 0.2 0.2 1"/>-->
-            <!--</body>-->
             <body name="torso" pos="0 0 0">
                 <inertial pos="0 0 0" mass="0.0001" diaginertia="1e-08 1e-08 1e-08" />
                 <geom size="0.05 0.05 0.05" type="box" contype="0" conaffinity="0" group="1" rgba="0.2 0.2 0.2 1" />
@@ -150,33 +143,10 @@
                                                 <geom size="0.035 0.015" pos="0 0 0.02" type="cylinder" rgba="0.2 0.2 0.2 0"/>
 
 <!--  ================= BEGIN GRIPPER ================= /-->
-                                                <!--body name="claw" pos="0 0 0" quat="-1 0 1 0">
-                                                    <geom class="1" name="Geomclaw" type="box" size="0.01 0.04 0.01" />
-
-                                                    <body name="rightclaw" pos=".01 -.02 0" >
-							<inertial pos="0 0 0" mass="0.02" diaginertia="0.01 0.01 0.01" />
-                                                        <geom name="rightclaw_it" class="1" type="box" pos="0 0 0" size="0.05 0.005 0.005" friction="0.001 0.005 0.0001" rgba="0.1 0.1 0.1 1.0"/>
-                                                        <joint name="rc_close" type="slide" pos="0 0 0" range="-0.01 0"/>
-                                                    </body>
-
-                                                    <body name="leftclaw" pos=".01 .02 0">
-							<inertial pos="0 0 0" mass="0.02" diaginertia="0.01 0.01 0.01" />
-                                                        <geom name="leftclaw_it" class="1" type="box" pos="0 0 0" size="0.05 0.005 0.005" friction="0.001 0.005 0.0001" rgba="0.1 0.1 0.1 1.0"/>
-							<joint name="lc_close" type="slide" pos="0 0 0" range="0 0.01"/-->
-                                                        <!--site name="endeffector" pos="0 0 0" size="0.01" /-->
-                                                        <!-- <body name="endeff" pos=".01 .02 0"> -->
-                                                            <!-- <geom name="leftclaw_it" class="1" type="capsule" fromto="0 0 0 .05 0.0 0.0"    size="0.005" /> -->
-                                                            <!-- <site name="endeffector" pos="0 0 0" size="0.01" /> -->
-                                                        <!-- </body>-->
-                                                    <!--/body-->
-                                                <!--/body-->
                                                    <body name="right_gripper_base" pos="0 0 0.025">
                                                         <inertial pos="0 0 0" quat="-0.5 0.5 0.5 0.5" mass="0.3" diaginertia="3e-08 2e-08 2e-08" />
                                                         <geom quat="0 0 0.707107 0.707107" class="viz" mesh="electric_gripper_base" />
                                                         <geom size="0.029 0.05" quat="0 0 0.707107 0.707107" type="cylinder" />
-                                                        <!--<body name="right_gripper" pos="0 0 0.1327">
-                                                            <inertial pos="0 0 0" mass="0.0001" diaginertia="0 0 0" />
-                                                        </body>-->
                                                         <body name="r_gripper_l_finger" pos="0 -0.0015 0.02">
                                                             <inertial pos="0 0 0" quat="0 0 0 -1" mass="0.02" diaginertia="0.01 0.01 0.01" />
                                                             <joint name="r_gripper_l_finger_joint" pos="0 0 0" axis="0 1 0" type="slide" range="0 0.020833" limited="true"/>
@@ -185,7 +155,7 @@
                                                             <geom size="0.005 0.025 0.0085" pos="-0.005 -0.003 0.0083" quat="0 0 0 -1" type="box" rgba="0.1 0.1 0.1 1"/>
                                                             <body name="r_gripper_l_finger_tip" pos="0 0.01725 0.1127">
                                                                 <inertial pos="0 0 0" quat="0 0 0 1" mass="0.01" diaginertia="0.01 0.01 0.01" />
-                                                                <geom pos="-.007 -.01 0.003" class="viz" mesh="half_round_tip" euler="-1.57 0 0" name="r_gripper_l_finger_tip"/>
+                                                                <geom pos="-.007 -.01 0.003" class="viz" mesh="half_round_tip" euler="-1.57 0 0"/>
                                                                 <geom size="0.008 0.0185" pos="0 -0.0045 -0.015" quat="0 0 0 1" type="cylinder" />
                                                             </body>
                                                         </body>
@@ -226,24 +196,6 @@
                 </body>
             </body>
         </body>
-
-        <body mocap="true" name="mocap" pos="0.2369680365278436 0.7377722688452103 0.30233579064225752">
-            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="1.0 1.0 1.0 0.0" size="0.02 0.02 0.02" type="box"></geom>
-        </body>
-
-        <!--<body name="block" pos="0 0.7 0.1">-->
-            <!--<joint name="blockjoint" type="free" limited='false' damping="0" armature="0" />-->
-            <!--&lt;!&ndash; <inertial pos="0 0 0" mass="0.1" diaginertia="0.1 0.1 0.1"/> &ndash;&gt;-->
-            <!--<geom name="blockbox" type="box" pos="0 0 0" size="0.02 0.02 0.02" rgba=".1 .1 .9 1" contype="1" conaffinity="1"/>-->
-            <!--<site name="block" pos="0 0 0" size="0.01" />-->
-        <!--</body>-->
-
-        <!--<body name="goal" pos="0 0 0">-->
-            <!--<joint name="goaljoint" type="free" limited='false' damping="0" armature="0" />-->
-            <!--<geom name="goalbox" type="sphere" pos="0 0 0" size="0.02" rgba=".9 .1 .1 1" contype="0" conaffinity="0"/>-->
-            <!--<site name="goal" pos="0 0 0" size="0.01" />-->
-        <!--</body>-->
-
     </worldbody>
 
     <actuator>
