@@ -1,4 +1,4 @@
-# Robotics Sim Files
+# RoboSimLib
 ## Contributing
 - Please help contribute this library by adding pull request.
 - When you want to add mujoco robot files:
