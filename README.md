@@ -6,7 +6,9 @@
     separate robot xml file to robot.file, shared.file, <specific_task>.file.
 ## Usage
 - Check out this repository as a submodule of your working repository, into robotsimlib
-- git submodule add -f https://github.com/hjzh4/robosimlib.git robosimlib
+    ```
+    $ git submodule add -f https://github.com/hjzh4/robosimlib.git robosimlib
+    ```
 ### Example
 ```
 # Let's say we want to use mujoco sawyer for reach task
