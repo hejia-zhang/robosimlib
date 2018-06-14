@@ -1,0 +1,5 @@
+<mujoco>
+    <equality>
+        <connect body1="mocap" body2="fingertip" anchor="0 0 0" solimp="0.9 0.95 0.001" solref="0.02 1"/>
+    </equality>
+</mujoco>

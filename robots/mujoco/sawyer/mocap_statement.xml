@@ -1,0 +1,5 @@
+<mujoco>
+    <equality>
+        <weld body1="mocap" body2="right_gripper_base"/>
+    </equality>
+</mujoco>

@@ -1,0 +1,44 @@
+<mujoco>
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" width="32" height="32"/>
+        <material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="1 1 1 1"/>
+        <mesh name="pedestal" file="pedestal.STL" />
+        <mesh name="base" file="base.STL" />
+        <mesh name="l0" file="l0.STL" />
+        <mesh name="head" file="head.STL" />
+        <mesh name="l1" file="l1.STL" />
+        <mesh name="l2" file="l2.STL" />
+        <mesh name="l3" file="l3.STL" />
+        <mesh name="l4" file="l4.STL" />
+        <mesh name="l5" file="l5.STL" />
+        <mesh name="l6" file="l6.STL" />
+	<mesh name="half_round_tip" file="half_round_tip.STL" />
+	<mesh name="electric_gripper_base" file="electric_gripper_base.STL" />
+        <mesh name="extended_narrow" file="extended_narrow.STL"/>
+        <mesh name="paddle_tip" file="paddle_tip.STL"/>
+    </asset>
+
+    <default>
+        <joint limited="true" damping="1" stiffness="0" armature=".1" user="0"/>
+        <geom solref="0.008 1" solimp="0.95 0.95 0.01" margin="0.001" user="0"/>
+        <motor ctrllimited="true" ctrlrange="-1 1"/>
+        <position ctrllimited="true"/>
+
+        <default class='0'>
+            <geom friction="1 0.005 0.001" rgba=".75 .6 .5 1" contype="1" conaffinity="0"/>
+        </default>
+
+	    <default class="viz">
+		    <geom contype="0" conaffinity="0" group="1" type="mesh"/>
+	    </default>
+
+        <default class='1'>
+            <geom friction="1 0.005 0.001" rgba=".7 .6 .55 1" contype="1" conaffinity="0"/>
+        </default>
+
+        <default class='arm'>
+            <joint damping="5"/>
+        </default>
+    </default>
+</mujoco>

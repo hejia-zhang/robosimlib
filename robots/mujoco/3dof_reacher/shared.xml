@@ -1,0 +1,9 @@
+<mujoco>
+    <default>
+        <default class="3dofreacher">
+            <joint armature="1" damping="50" frictionloss="0" stiffness="0"/>
+        </default>
+        <!-- joint armature="1" damping="1" limited="true"/ -->
+        <geom contype="0" friction="1 0.1 0.1" rgba="0.7 0.7 0 1"/>
+    </default>
+</mujoco>
