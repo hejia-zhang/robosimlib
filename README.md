@@ -10,7 +10,7 @@
 ### Example
 ```
 # Let's say we want to use mujoco sawyer for reach task
-from robosimlib.common_configuration import MUJOCO_ROBOTS_DIR
+from robosimlib.robosimlib_configuration import MUJOCO_ROBOTS_DIR
 sawyer_mujoco_file_path = os.path.join(MUJOCO_ROBOTS_DIR, 'sawyer', 'reach.xml')
 ```
 ## Content
