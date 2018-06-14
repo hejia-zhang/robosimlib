@@ -2,8 +2,9 @@
 ## Contributing
 - Please help contribute this library by adding pull request.
 - When you want to add mujoco robot files:
-    - Please follow [example gym fetch](https://github.com/openai/gym/tree/master/gym/envs/robotics/assets/fetch) to 
+    - Please follow [example 3dof reacher](https://github.com/hjzh4/robosimlib/tree/master/robots/mujoco/3dof_reacher) to 
     separate robot xml file to robot.file, shared.file, <specific_task>.file.
+- If you want to use mocap, please add mocap_statement.xml and <task>_with_mocap.xml, e.g [example sawyer](https://github.com/hjzh4/robotics-sim-files/tree/master/robots/mujoco/sawyer)
 ## Usage
 - Check out this repository as a submodule of your working repository, into robotsimlib
     ```
@@ -18,6 +19,7 @@ sawyer_mujoco_file_path = os.path.join(MUJOCO_ROBOTS_DIR, 'sawyer', 'reach.xml')
 ## Content
 ### Mujoco
 - [sawyer](https://github.com/hjzh4/robotics-sim-files/tree/master/robots/mujoco/sawyer)
+- [3dof reacher](https://github.com/hjzh4/robosimlib/tree/master/robots/mujoco/3dof_reacher)
 ### Gazebo
 - [red bin](https://github.com/hjzh4/robotics-sim-files/tree/master/objects/gazebo/red_bin)
 - [green bin](https://github.com/hjzh4/robotics-sim-files/tree/master/objects/gazebo/green_bin)
