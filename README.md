@@ -4,6 +4,15 @@
 - When you want to add mujoco robot files:
     - Please follow [example gym fetch](https://github.com/openai/gym/tree/master/gym/envs/robotics/assets/fetch) to 
     separate robot xml file to robot.file, shared.file, <specific_task>.file.
+## Usage
+- Check out this repository as a submodule of your working repository, into robotsimlib
+- git submodule add -f https://github.com/hjzh4/robosimlib.git robosimlib
+### Example
+```
+# Let's say we want to use mujoco sawyer for reach task
+from robosimlib.common_configuration import MUJOCO_ROBOTS_DIR
+sawyer_mujoco_file_path = os.path.join(MUJOCO_ROBOTS_DIR, 'sawyer', 'reach.xml')
+```
 ## Content
 ### Mujoco
 - [sawyer](https://github.com/hjzh4/robotics-sim-files/tree/master/robots/mujoco/sawyer)
