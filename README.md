@@ -20,6 +20,9 @@ sawyer_mujoco_file_path = os.path.join(MUJOCO_ROBOTS_DIR, 'sawyer', 'reach.xml')
 ### Mujoco
 - [sawyer](https://github.com/hjzh4/robotics-sim-files/tree/master/robots/mujoco/sawyer)
 - [3dof reacher](https://github.com/hjzh4/robosimlib/tree/master/robots/mujoco/3dof_reacher)
+- [red bin v1](https://github.com/hjzh4/robosimlib/tree/master/objects/mujoco/red_bin_v1)
+- [green bin v1](https://github.com/hjzh4/robosimlib/tree/master/objects/mujoco/green_bin_v1)
+- [yellow bin v1](https://github.com/hjzh4/robosimlib/tree/master/objects/mujoco/yellow_bin_v1)
 ### Gazebo
 - [red bin](https://github.com/hjzh4/robotics-sim-files/tree/master/objects/gazebo/red_bin)
 - [green bin](https://github.com/hjzh4/robotics-sim-files/tree/master/objects/gazebo/green_bin)
