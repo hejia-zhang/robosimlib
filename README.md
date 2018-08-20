@@ -2,7 +2,7 @@
 ## Contributing
 - Please help contribute this library by adding pull request.
 - When you want to add mujoco robot files:
-    - Please follow [example 3dof reacher](https://github.com/hjzh4/robosimlib/tree/master/robots/mujoco/3dof_reacher) to 
+    - Please follow [example reacher](https://github.com/hjzh4/robosimlib/tree/master/robots/mujoco/reacher) to 
     separate robot xml file to robot.file, shared.file, <specific_task>.file.
 - If you want to use mocap, please add mocap_statement.xml and <task>_with_mocap.xml, e.g [example sawyer](https://github.com/hjzh4/robotics-sim-files/tree/master/robots/mujoco/sawyer)
 ## Usage
@@ -19,7 +19,7 @@ sawyer_mujoco_file_path = os.path.join(MUJOCO_ROBOTS_DIR, 'sawyer', 'reach.xml')
 ## Content
 ### Mujoco
 - [sawyer](https://github.com/hjzh4/robotics-sim-files/tree/master/robots/mujoco/sawyer)
-- [3dof reacher](https://github.com/hjzh4/robosimlib/tree/master/robots/mujoco/3dof_reacher)
+- [reacher](https://github.com/hjzh4/robosimlib/tree/master/robots/mujoco/reacher)
 - [red bin v1](https://github.com/hjzh4/robosimlib/tree/master/objects/mujoco/red_bin_v1)
 - [green bin v1](https://github.com/hjzh4/robosimlib/tree/master/objects/mujoco/green_bin_v1)
 - [yellow bin v1](https://github.com/hjzh4/robosimlib/tree/master/objects/mujoco/yellow_bin_v1)

@@ -1,6 +1,6 @@
 <mujoco>
     <default>
-        <default class="3dofreacher">
+        <default class="reacher">
             <joint armature="1" damping="50" frictionloss="0" stiffness="0"/>
         </default>
         <!-- joint armature="1" damping="1" limited="true"/ -->

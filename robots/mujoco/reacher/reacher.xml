@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mujoco model="3dofreacher">
+<mujoco model="reacher">
     <compiler angle="radian" inertiafromgeom="true"/>
     <option gravity="0 0 -9.81" integrator="RK4" timestep="0.01"/>
 
