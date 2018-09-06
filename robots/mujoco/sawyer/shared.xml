@@ -13,17 +13,18 @@
         <mesh name="l4" file="l4.STL" />
         <mesh name="l5" file="l5.STL" />
         <mesh name="l6" file="l6.STL" />
-	<mesh name="half_round_tip" file="half_round_tip.STL" />
-	<mesh name="electric_gripper_base" file="electric_gripper_base.STL" />
+        <mesh name="pedestal_table" file="pedestal_table.STL" />
+	      <mesh name="half_round_tip" file="half_round_tip.STL" />
+	      <mesh name="electric_gripper_base" file="electric_gripper_base.STL" />
         <mesh name="extended_narrow" file="extended_narrow.STL"/>
         <mesh name="paddle_tip" file="paddle_tip.STL"/>
     </asset>
 
     <default>
-        <joint limited="true" damping="1" stiffness="0" armature=".1" user="0"/>
+        <joint damping="10" stiffness="0" armature=".1" user="0"/>
         <geom solref="0.008 1" solimp="0.95 0.95 0.01" margin="0.001" user="0"/>
-        <motor ctrllimited="true" ctrlrange="-1 1"/>
-        <position ctrllimited="true"/>
+        <!--<motor ctrllimited="true" ctrlrange="-1 1"/>-->
+        <!--<position ctrllimited="true"/>-->
 
         <default class='0'>
             <geom friction="1 0.005 0.001" rgba=".75 .6 .5 1" contype="1" conaffinity="0"/>
