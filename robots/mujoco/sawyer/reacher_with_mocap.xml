@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mujoco>
-    <compiler angle="radian" meshdir="meshes" />
-    <!-- <option gravity="0 0 0" /> -->
-    <!-- <option impratio="0.01" /> -->
+    <compiler angle="radian" inertiafromgeom="true" meshdir="meshes"/>
+    <option gravity="0 0 -9.81" integrator="RK4" timestep="0.01"/>
 
     <include file="shared.xml"/>
 
@@ -11,16 +10,28 @@
     <worldbody>
         <light directional="true" ambient="0.2 0.2 0.2" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" castshadow="false" pos="0 0 4" dir="0 0 -1" name="light0"/>
 
-	    <geom name="target0" pos="0.4 0.25 0.0" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere" contype="0" conaffinity="0"/>
+        <body name="target" pos="0 0 0">
+            <joint name="target:joint" type="free" damping="0.01"/>
+            <geom conaffinity="0" contype="0" name="target" pos="0 0 0" rgba="0.9 0.2 0.2 1" size=".009" type="sphere"/>
+        </body>
+
         <geom name="floor0" pos="0.4 0 -0.92" size="1.2 0.7 1" type="plane" condim="3" material="floor_mat"/>
 
-        <body mocap="true" name="mocap" pos="0.2369680365278436 0.7377722688452103 0.30233579064225752">
-            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0.0 0.0 1.0 1.0" size="0.029 0.05" quat="0 0 0.707107 0.707107" type="cylinder"/>
+        <body mocap="true" name="mocap" pos="0 0 0">
+            <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0.0 0.0 1.0 1.0" size="0.10 0.15" quat="0 0 0.707107 0.707107" type="cylinder"/>
         </body>
 
         <include file="robot.xml"/>
     </worldbody>
 
-    <actuator/>
+    <actuator>
+        <motor joint="right_j0" ctrlrange="-20.0 20.0" ctrllimited="false" gear="150"/>
+        <motor joint="right_j1" ctrlrange="-20.0 20.0" ctrllimited="false" gear="150"/>
+        <motor joint="right_j2" ctrlrange="-10.0 10.0" ctrllimited="false" gear="150"/>
+        <motor joint="right_j3" ctrlrange="-10.0 10.0" ctrllimited="false" gear="150"/>
+        <motor joint="right_j4" ctrlrange="-4.5  4.5" ctrllimited="false" gear="150"/>
+        <motor joint="right_j5" ctrlrange="-4.5 4.5" ctrllimited="false" gear="150"/>
+        <motor joint="right_j6" ctrlrange="-4.5 4.5" ctrllimited="false" gear="150"/>
+    </actuator>
 
 </mujoco>

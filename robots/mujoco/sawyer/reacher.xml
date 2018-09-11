@@ -29,8 +29,6 @@
         <motor joint="right_j4" ctrlrange="-4.5  4.5" ctrllimited="false" gear="150"/>
         <motor joint="right_j5" ctrlrange="-4.5 4.5" ctrllimited="false" gear="150"/>
         <motor joint="right_j6" ctrlrange="-4.5 4.5" ctrllimited="false" gear="150"/>
-        <!--<motor gear="1" joint="r_gripper_l_finger_joint" name="slide_l_claw"/>-->
-	      <!--<motor gear="1" joint="r_gripper_r_finger_joint" name="slide_r_claw"/>-->
     </actuator>
 
 </mujoco>
